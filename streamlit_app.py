@@ -2,7 +2,19 @@ import streamlit as st
 from openai import OpenAI
 
 # Show title and description.
-st.title("💬 Chatbot")
+st.title("💬 Merwane bot")
+"Bienvenue "
+
+left_column, right_column = st.columns(2)
+# You can use a column just like st.sidebar:
+left_column.button('Press me!')
+
+# Or even better, call Streamlit functions inside a "with" block:
+with right_column:
+    chosen = st.radio(
+        'Sorting hat',
+        ("Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"))
+    st.write(f"You are in {chosen} house!")
 st.write(
     "This is a simple chatbot that uses OpenAI's GPT-3.5 model to generate responses. "
     "To use this app, you need to provide an OpenAI API key, which you can get [here](https://platform.openai.com/account/api-keys). "
